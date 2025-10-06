@@ -13,6 +13,24 @@ sections:
     id: portfolio
   - title: About
     id: about
+  - title: Publications
+    id: publications
+
+# Jekyll Scholar settings
+scholar:
+  last_name: Doe
+  first_name: [John]
+
+  style: citesty
+  locale: en
+
+  source: ./_bib
+  bibliography: ref.bib
+  bibliography_template: bibtemplate
+  sort_by: year, month
+  order: descending
+
+  query: "@*" # all entries
 
 # Footer settings
 footer:
