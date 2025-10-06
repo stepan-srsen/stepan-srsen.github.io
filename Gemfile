@@ -1,2 +1,6 @@
 source "https://rubygems.org"
-gemspec
+
+group :jekyll_plugins do
+  gem 'jekyll'
+  gem 'webrick', '~> 1.8'
+end
