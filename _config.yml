@@ -21,7 +21,7 @@ scholar:
   last_name: Doe
   first_name: [John]
 
-  style: citesty
+  style: ./_bib/citesty
   locale: en
 
   source: ./_bib
@@ -31,6 +31,11 @@ scholar:
   order: descending
 
   query: "@*" # all entries
+
+  bibtex_skip_fields: # which bibtex field not to show
+    - abstract # default in jekyll-scholar
+    - month_numeric # default in jekyll-scholar
+    - file
 
 # Footer settings
 footer:

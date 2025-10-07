@@ -9,7 +9,6 @@ pre{
     white-space: -o-pre-wrap; 
     word-wrap: break-word; 
     width:100%; overflow-x:auto;
-    <!-- background-color: red; -->
 }
 ol li{
   padding: 0;
@@ -28,17 +27,16 @@ ol li{
 <div class="col-sm-2 col-xs-2 d-none d-md-block" style="margin:0; padding:0; margin-top:3px;">
 <!-- <div class="col-sm-2 col-xs-2"> -->
 {% if entry.type == "article" %}
-<center><button class="btn btn-primary btm-sm Disabled" style="width:100%;border-radius:12px;">ARTICLE</button></center>&nbsp;&nbsp;
-    
+<button class="btn btn-primary btm-sm" disabled style="width:100%;">ARTICLE</button>
 {% endif %}
 {% if entry.type == "inproceedings" %}
-<center><button class="btn btn-success btm-sm Disabled" style="width:100%;border-radius:12px;">PROCEEDING</button></center>
+<button class="btn btn-success btm-sm" disabled style="width:100%;">PROCEEDING</button>
 {% endif %}
 {% if entry.type == "report" %}
-<center><button class="btn btn-danger btm-sm Disabled" style="width:100%;border-radius:12px;">REPORT</button></center>
+<button class="btn btn-danger btm-sm" disabled style="width:100%;">REPORT</button>
 {% endif %}
 {% if entry.type == "unpublished" %}
-<center><button class="btn btn-warning btm-sm Disabled" style="width:100%;border-radius:12px;">PREPRINT</button></center>
+<button class="btn btn-warning btm-sm" disabled style="width:100%;">PREPRINT</button>
 {% endif %}
 </div>
 
@@ -48,20 +46,6 @@ ol li{
 </div>
 <!-- You can use the below to make your name bold -->
 <!-- {{reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' | replace_first: 'Bryngelson, S.', '<b>Bryngelson, S.</b>' }}</div> -->
-
-{% assign bibtest = false %}
-{% if entry.file %}
-{% assign bibfile = "/papers/" | append: entry.file %}
-{% for file in site.static_files %}
-  {% if file.path contains bibfile %}
-   {% assign bibtest = true %}
-  {% endif %}
-{% endfor %}
-{% endif %}
-
-{% if bibtest %}
-<a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank"><button class="btn btn-info btm-sm">PDF</button></a>
-{% endif %}
 
 {% if entry.doi %}
 <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-info btm-sm">DOI</button></a>
@@ -76,22 +60,16 @@ ol li{
 <!-- {% endif %} -->
 
 {% if entry.type == 'unpublished' or entry.type == 'article' or  entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'proceedings' or entry.type == 'report' %}
-<button class="btn btn-info btm-sm"  onclick="toggleBibtex{{entry.key}}()">BIB</button>
+<button class="btn btn-info btm-sm" onclick="toggleVisibility('{{entry.key}}', 'a')">BIB</button>
 {% endif %}
 
 {% if entry.abstract %}
-<button class="btn btn-info btm-sm"  onclick="toggleAbstract{{entry.key}}()">ABSTRACT</button>
+<button class="btn btn-info btm-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">ABSTRACT</button>
 {% endif %}
 
-{% if entry.abstract %}
 <div id="a{{entry.key}}" style="display: none;">
-<pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
-</div>
-{% else %}
-<div id="a{{entry.key}}" style="display: none;;">
 <pre>{{ entry.bibtex }}</pre>
 </div>
-{% endif %}
 
 <div id="b{{entry.key}}" style="display: none;;">
 <pre>{{entry.abstract}}</pre>
@@ -102,20 +80,22 @@ ol li{
 </div>
 
 <script>
-function toggleBibtex{{entry.key}}(parameter) {
-    var x= document.getElementById('a{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
+function toggleVisibility(key, type) {
+    var bibId = 'a' + key;
+    var absId = 'b' + key;
+
+    var showId = type + key;
+    var el = document.getElementById(showId);
+
+    // If the clicked section is already open, hide it
+    if (el.style.display === 'block') {
+        el.style.display = 'none';
     } else {
-        x.style.display = 'none';
-    }
-}
-function toggleAbstract{{entry.key}}(parameter) {
-    var x= document.getElementById('b{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
+        // Hide both sections first
+        document.getElementById(bibId).style.display = 'none';
+        document.getElementById(absId).style.display = 'none';
+        // Show the requested section
+        el.style.display = 'block';
     }
 }
 </script>
