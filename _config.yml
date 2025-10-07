@@ -18,24 +18,18 @@ sections:
 
 # Jekyll Scholar settings
 scholar:
-  last_name: Doe
-  first_name: [John]
-
-  style: ./_bib/citesty
   locale: en
-
+  style: ./_bib/citesty
   source: ./_bib
   bibliography: ref.bib
   bibliography_template: bibtemplate
   sort_by: year, month
   order: descending
-
-  query: "@*" # all entries
-
   bibtex_skip_fields: # which bibtex field not to show
     - abstract # default in jekyll-scholar
     - month_numeric # default in jekyll-scholar
     - file
+  query: "@*" # all entries
 
 # Footer settings
 footer:
