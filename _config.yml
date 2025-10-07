@@ -9,8 +9,8 @@ meta_author: Sršeň Štěpán
 
 # Content settings ({{ section.id }}.html must exist in the _includes folder)
 sections:
-  - title: Portfolio
-    id: portfolio
+  - title: Projects
+    id: projects
   - title: About
     id: about
   - title: Publications
