@@ -31,6 +31,7 @@ scholar:
     - month_numeric # default in jekyll-scholar
     - file
   query: "@*" # all entries
+  highlight: "Sršeň, Š" # to highlight in the bibilography
 
 # Footer settings
 footer:

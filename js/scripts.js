@@ -52,3 +52,36 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+function toggleVisibility(key, type) {
+    var absId = 'a' + key;
+    var bibId = 'b' + key;
+
+    var showId = type + key;
+    var el = document.getElementById(showId);
+
+    // If the clicked section is already open, hide it
+    if (el.style.display === 'block') {
+        el.style.display = 'none';
+    } else {
+        // Hide both sections first
+        document.getElementById(absId).style.display = 'none';
+        document.getElementById(bibId).style.display = 'none';
+        // Show the requested section
+        el.style.display = 'block';
+    }
+}
+
+function copyBibtex(key) {
+    var pre = document.getElementById('bib-' + key);
+    var bibtex = pre.innerText;
+    navigator.clipboard.writeText(bibtex).then(function() {
+        var copiedMsg = document.getElementById('copied-' + key);
+        copiedMsg.style.display = 'block';
+        pre.style.backgroundColor = '#ddfff8';
+        setTimeout(function() {
+            copiedMsg.style.display = 'none';
+            pre.style.backgroundColor = '';
+        }, 800);
+    });
+}
