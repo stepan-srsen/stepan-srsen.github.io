@@ -1,46 +1,26 @@
 ---
 ---
 
-<style>
-pre{
-    white-space: pre-wrap;  
-    white-space: -moz-pre-wrap; 
-    white-space: -pre-wrap; 
-    white-space: -o-pre-wrap; 
-    word-wrap: break-word; 
-    width:100%; overflow-x:auto;
-}
-ol li{
-  padding: 0;
-  list-style: none!important;
-  list-style-type: none;
-  padding-left: 0!important;
-  margin: 0!important;
-}
-</style>
-
-
-<!-- primary, success, danger, warning-->
-
-<div class="text-justify">
-<div class="row">
-<div class="col-sm-2 col-xs-2 d-none d-md-block" style="margin:0; padding:0; margin-top:3px;">
-<!-- <div class="col-sm-2 col-xs-2"> -->
+<div class="row text-justify">
+<div class="col-1 d-none d-md-block" style="margin:0; padding:0; margin-top:3px;">
 {% if entry.type == "article" %}
 <button class="btn btn-primary btm-sm" disabled style="width:100%;">ARTICLE</button>
 {% endif %}
 {% if entry.type == "inproceedings" %}
-<button class="btn btn-success btm-sm" disabled style="width:100%;">PROCEEDING</button>
+<button class="btn btn-info btm-sm" disabled style="width:100%;">PROCEEDING</button>
+{% endif %}
+{% if entry.type == "incollection" %}
+<button class="btn btn-warning btm-sm" disabled style="width:100%;">CHAPTER</button>
 {% endif %}
 {% if entry.type == "report" %}
 <button class="btn btn-danger btm-sm" disabled style="width:100%;">REPORT</button>
 {% endif %}
 {% if entry.type == "unpublished" %}
-<button class="btn btn-warning btm-sm" disabled style="width:100%;">PREPRINT</button>
+<button class="btn btn-dark btm-sm" disabled style="width:100%;">PREPRINT</button>
 {% endif %}
 </div>
 
-<div class="col-sm-10 col-xs-10">
+<div class="col-11">
 <div class="row">
 {{reference}}
 <!--
@@ -51,23 +31,18 @@ or use the below to make the name bold
 </div>
 
 {% if entry.doi %}
-<a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-info btm-sm">DOI</button></a>
-{% endif %}
-
-{% if entry.link %}
-<a href="{{ entry.link }}" target="_blank"><button class="btn btn-info btm-sm">DOI</button></a>
+<a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-secondary btm-sm">DOI</button></a>
+{% elsif entry.url %}
+<a href="{{ entry.url }}" target="_blank"><button class="btn btn-secondary btm-sm">URL</button></a>
 {% endif %}
 
 <!-- {% if entry.type == 'unpublished' and entry.arxiv %} -->
 <!-- <a href="{{ entry.arxiv | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-info btm-sm">ARXIV</button></a> -->
 <!-- {% endif %} -->
 
-{% if entry.type == 'unpublished' or entry.type == 'article' or  entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'proceedings' or entry.type == 'report' %}
-<button class="btn btn-info btm-sm" onclick="toggleVisibility('{{entry.key}}', 'a')">BIB</button>
-{% endif %}
-
+<button class="btn btn-secondary btm-sm" onclick="toggleVisibility('{{entry.key}}', 'a')">BIB</button>
 {% if entry.abstract %}
-<button class="btn btn-info btm-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">ABSTRACT</button>
+<button class="btn btn-secondary btm-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">ABSTRACT</button>
 {% endif %}
 
 <div id="a{{entry.key}}" style="display: none;">
@@ -79,7 +54,6 @@ or use the below to make the name bold
 </div>
 </div>
 
-</div>
 </div>
 
 <script>

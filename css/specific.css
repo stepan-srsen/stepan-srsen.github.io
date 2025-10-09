@@ -1,0 +1,12 @@
+.bibliography {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.bibliography pre{
+    white-space: pre-wrap;  
+    word-wrap: break-word; 
+    width: 100%;
+    overflow-x: auto;
+}

@@ -19,9 +19,10 @@ sections:
 # Jekyll Scholar settings
 scholar:
   locale: en
-  style: ./_bib/citesty
+  style: ./_bib/acs
+  #style: american-chemical-society
   source: ./_bib
-  bibliography: ref.bib
+  bibliography: bibliography.bib
   bibliography_template: bibtemplate
   sort_by: year, month
   order: descending
