@@ -1,65 +1,64 @@
 ---
 ---
 
-<div class="row text-justify">
-<div class="col-1 d-none d-md-block" style="margin:0; padding:0; margin-top:3px;">
-{% if entry.type == "article" %}
-<button class="btn btn-primary btm-sm" disabled style="width:100%;">ARTICLE</button>
-{% endif %}
-{% if entry.type == "inproceedings" %}
-<button class="btn btn-info btm-sm" disabled style="width:100%;">PROCEEDING</button>
-{% endif %}
-{% if entry.type == "incollection" %}
-<button class="btn btn-warning btm-sm" disabled style="width:100%;">CHAPTER</button>
-{% endif %}
-{% if entry.type == "report" %}
-<button class="btn btn-danger btm-sm" disabled style="width:100%;">REPORT</button>
-{% endif %}
-{% if entry.type == "unpublished" %}
-<button class="btn btn-dark btm-sm" disabled style="width:100%;">PREPRINT</button>
-{% endif %}
-</div>
-
-<div class="col-11">
 <div class="row">
-{{reference}}
-<!--
-{{reference}}
-or use the below to make the name bold
-{{reference | replace_first: 'Sršeň, Š.', '<b>Sršeň, Š.</b>' | replace_first: 'Srsen, S.', '<b>Srsen, S.</b>' | replace_first: 'Š. Sršeň', '<b>Š. Sršeň</b>' | replace_first: 'S. Srsen', '<b>S. Srsen</b>' }}
--->
-</div>
+    <div class="col-auto d-none d-md-block">
+        {% if entry.type == "article" %}
+        <button class="btn btn-primary pub-type" disabled>ARTICLE</button>
+        {% endif %}
+        {% if entry.type == "inproceedings" %}
+        <button class="btn btn-info pub-type" disabled>PROCEEDING</button>
+        {% endif %}
+        {% if entry.type == "incollection" %}
+        <button class="btn btn-warning pub-type" disabled>CHAPTER</button>
+        {% endif %}
+        {% if entry.type == "report" %}
+        <button class="btn btn-danger pub-type" disabled>REPORT</button>
+        {% endif %}
+        {% if entry.type == "unpublished" %}
+        <button class="btn btn-dark pub-type" disabled>PREPRINT</button>
+        {% endif %}
+    </div>
+    <div class="col">
+        <div>
+        {{reference}}
+        <!--
+        {{reference}}
+        or use the below to make the name bold
+        {{reference | replace_first: 'Sršeň, Š.', '<b>Sršeň, Š.</b>' | replace_first: 'Srsen, S.', '<b>Srsen, S.</b>' | replace_first: 'Š. Sršeň', '<b>Š. Sršeň</b>' | replace_first: 'S. Srsen', '<b>S. Srsen</b>' }}
+        -->
+        </div>
 
-{% if entry.doi %}
-<a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-secondary btm-sm">DOI</button></a>
-{% elsif entry.url %}
-<a href="{{ entry.url }}" target="_blank"><button class="btn btn-secondary btm-sm">URL</button></a>
-{% endif %}
+        {% if entry.doi %}
+        <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-secondary btn-sm">DOI</button></a>
+        {% elsif entry.url %}
+        <a href="{{ entry.url }}" target="_blank"><button class="btn btn-secondary btn-sm">URL</button></a>
+        {% endif %}
 
-<!-- {% if entry.type == 'unpublished' and entry.arxiv %} -->
-<!-- <a href="{{ entry.arxiv | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-info btm-sm">ARXIV</button></a> -->
-<!-- {% endif %} -->
+        <!-- {% if entry.type == 'unpublished' and entry.arxiv %} -->
+        <!-- <a href="{{ entry.arxiv | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-info btm-sm">ARXIV</button></a> -->
+        <!-- {% endif %} -->
 
-<button class="btn btn-secondary btm-sm" onclick="toggleVisibility('{{entry.key}}', 'a')">BIB</button>
-{% if entry.abstract %}
-<button class="btn btn-secondary btm-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">ABSTRACT</button>
-{% endif %}
-
-<div id="a{{entry.key}}" style="display: none;">
-<pre>{{ entry.bibtex }}</pre>
-</div>
-
-<div id="b{{entry.key}}" style="display: none;;">
-<pre>{{entry.abstract}}</pre>
-</div>
-</div>
-
+        <button class="btn btn-secondary btn-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">BIB</button>
+        {% if entry.abstract %}
+        <button class="btn btn-secondary btn-sm" onclick="toggleVisibility('{{entry.key}}', 'a')">ABSTRACT</button>
+        {% endif %}
+        <div id="b{{entry.key}}" class="bibtex" style="display: none; position: relative;">
+            <pre id="bib-{{entry.key}}" style="cursor:pointer;" onclick="copyBibtex('{{entry.key}}')">{{ entry.bibtex }}</pre>
+            <span id="copied-{{entry.key}}" class="btn btn-primary" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2;">
+                <i class="fas fa-clipboard"></i> &nbsp; Copied!
+            </span>
+        </div>
+        <p id="a{{entry.key}}" class="abstract" style="display: none;;">
+            {{entry.abstract}}
+        </p>
+    </div>
 </div>
 
 <script>
 function toggleVisibility(key, type) {
-    var bibId = 'a' + key;
-    var absId = 'b' + key;
+    var absId = 'a' + key;
+    var bibId = 'b' + key;
 
     var showId = type + key;
     var el = document.getElementById(showId);
@@ -69,10 +68,23 @@ function toggleVisibility(key, type) {
         el.style.display = 'none';
     } else {
         // Hide both sections first
-        document.getElementById(bibId).style.display = 'none';
         document.getElementById(absId).style.display = 'none';
+        document.getElementById(bibId).style.display = 'none';
         // Show the requested section
         el.style.display = 'block';
     }
+}
+function copyBibtex(key) {
+    var pre = document.getElementById('bib-' + key);
+    var bibtex = pre.innerText;
+    navigator.clipboard.writeText(bibtex).then(function() {
+        var copiedMsg = document.getElementById('copied-' + key);
+        copiedMsg.style.display = 'block';
+        pre.style.backgroundColor = '#ddfff8';
+        setTimeout(function() {
+            copiedMsg.style.display = 'none';
+            pre.style.backgroundColor = '';
+        }, 800);
+    });
 }
 </script>
