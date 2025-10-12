@@ -1,7 +1,7 @@
 # Site settings
 title: Dr. Štěpán Sršeň
 email: stepan.srsen@vscht.cz
-url: https://stepan-srsen.github.io/
+url: https://stepan-srsen.github.io # the base hostname & protocol for your site, e.g. http://example.com
 description: "Academic portfolio of Dr. Štěpán Sršeň"
 keywords: "machine learning, artificial intelligence, quantum chemistry, computational chemistry, physical chemistry, photochemistry"
 skills: "Quantum and computational chemist - machine learning expert"
