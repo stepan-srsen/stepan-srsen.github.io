@@ -30,13 +30,13 @@
         </div>
 
         {% if entry.doi %}
-        <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-secondary btn-sm">DOI</button></a>
+        <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank" rel="noopener noreferrer"><button class="btn btn-secondary btn-sm">DOI</button></a>
         {% elsif entry.url %}
-        <a href="{{ entry.url }}" target="_blank"><button class="btn btn-secondary btn-sm">URL</button></a>
+        <a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer"><button class="btn btn-secondary btn-sm">URL</button></a>
         {% endif %}
 
         <!-- {% if entry.type == 'unpublished' and entry.arxiv %} -->
-        <!-- <a href="{{ entry.arxiv | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-info btm-sm">ARXIV</button></a> -->
+        <!-- <a href="{{ entry.arxiv | prepend: 'https://arxiv.org/abs/' }}" target="_blank" rel="noopener noreferrer"><button class="btn btn-info btm-sm">ARXIV</button></a> -->
         <!-- {% endif %} -->
 
         <button class="btn btn-secondary btn-sm" onclick="toggleVisibility('{{entry.key}}', 'b')">BIB</button>
@@ -46,7 +46,7 @@
         <div id="b{{entry.key}}" class="bibtex" style="display: none; position: relative;">
             <pre id="bib-{{entry.key}}" style="cursor:pointer;" onclick="copyBibtex('{{entry.key}}')">{{ entry.bibtex }}</pre>
             <span id="copied-{{entry.key}}" class="btn btn-primary" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2;">
-                <i class="fas fa-clipboard"></i> &nbsp; Copied!
+                <i class="bi bi-clipboard-check"></i> &nbsp; Copied!
             </span>
         </div>
         <p id="a{{entry.key}}" class="abstract" style="display: none;;">
