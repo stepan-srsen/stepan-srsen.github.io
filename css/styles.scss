@@ -338,19 +338,8 @@ html {
 }
 
 // 
-// Footer
-// 
-
-.footer {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: $secondary;
-    color: $white;
-}
-
-.copyright {
-    background-color: darken($secondary, 10%);
-}
+// Bibliography
+//
 
 ol.bibliography {
     list-style: none !important;
@@ -375,3 +364,26 @@ ol.bibliography pre{
     margin-bottom: 0.5rem;
     border-style: dashed;
  }
+
+// 
+// Footer
+// 
+
+.footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: $secondary;
+    color: $white;
+
+    a:not(.btn) {
+        text-decoration: none;
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
+    }
+}
+
+.copyright {
+    background-color: darken($secondary, 10%);
+}

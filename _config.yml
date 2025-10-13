@@ -7,7 +7,7 @@ keywords: "machine learning, artificial intelligence, quantum chemistry, computa
 skills: "Quantum and computational chemist - machine learning expert"
 meta_author: Sršeň Štěpán
 
-# Content settings ({{ section.id }}.html must exist in the _includes folder)
+# Content settings, ({{ section.id }}.html must exist in the _includes folder)
 sections:
   - title: Projects
     id: projects
@@ -35,10 +35,17 @@ scholar:
 
 # Footer settings
 footer:
+  headline1: Office
+  headline2: Around the Web
+  headline3: Affiliation
   copyright: Štěpán Sršeň
-  location: Office
-  social: Around the Web
-  credits: Credits
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: "Phone: +420 220445039"
+  - line: Office C115
+  - line: Studentská 2031/6
+  - line: 160 00 Prague 6, Czech Republic
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -48,12 +55,16 @@ social:
     url: https://bsky.app/profile/stepansrsen.bsky.social
   - title: github
     url: http://github.com/stepan-srsen
+  - title: orcid
+    url: https://orcid.org/0000-0001-7723-4540
 
-# Postal address (add as many lines as necessary)
-address:
-  - line: Office C115
-  - line: Studentská 2031/6
-  - line: 160 00 Prague 6, Czech Republic
+affiliation:
+  - line: University of Chemistry and Technology, Prague
+    url: https://www.vscht.cz
+  - line: Department of Mathematics, Informatics and Cybernetics
+    url: https://umik.vscht.cz
+  - line: Technická 5
+  - line: 166 28 Prague 6, Czech Republic
 
 # Credits content
 credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
