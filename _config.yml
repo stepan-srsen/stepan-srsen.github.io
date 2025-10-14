@@ -4,7 +4,7 @@ email: stepan.srsen@vscht.cz
 url: https://stepan-srsen.github.io # the base hostname & protocol for your site, e.g. http://example.com
 description: "Academic portfolio of Dr. Štěpán Sršeň"
 keywords: "machine learning, artificial intelligence, quantum chemistry, computational chemistry, physical chemistry, photochemistry"
-skills: "Quantum and computational chemist - machine learning expert"
+skills: "Quantum and Computational Chemist - Cheminformatician - Machine Learning Scientist"
 meta_author: Sršeň Štěpán
 
 # Content settings, ({{ section.id }}.html must exist in the _includes folder)
