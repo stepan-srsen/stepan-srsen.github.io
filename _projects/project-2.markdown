@@ -1,8 +1,8 @@
 ---
 layout: default
-modal-id: 6
-title: "Test"
-img: submarine.png
+modal-id: 2
+title: "Computational Molecular Spectroscopy"
+img: cake.png
 alt: image-alt
 description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
 ---

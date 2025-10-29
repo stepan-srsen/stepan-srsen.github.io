@@ -9,8 +9,8 @@ meta_author: Sršeň Štěpán
 
 # Content settings, ({{ section.id }}.html must exist in the _includes folder)
 sections:
-  - title: Projects
-    id: projects
+  - title: Topics
+    id: topics
   - title: About
     id: about
   - title: Publications
@@ -66,17 +66,12 @@ affiliation:
   - line: Technická 5
   - line: 166 28 Prague 6, Czech Republic
 
-# Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
-
 # Build settings
 markdown: kramdown
 permalink: pretty
 
-#for posts
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      permalink: ""
+# Collections
+collections:
+  projects:
+    output: false
+    sort_by: modal-id
