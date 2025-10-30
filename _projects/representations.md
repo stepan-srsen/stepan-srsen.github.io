@@ -2,7 +2,7 @@
 layout: default
 modal-id: 8
 title: "Molecular Representations"
-img: ml.jpg
+img: repre.jpg
 alt: image-alt
 description: ""
 ---

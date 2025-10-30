@@ -2,7 +2,7 @@
 layout: default
 modal-id: 2
 title: "Statistical Techniques"
-img: ml.jpg
+img: statistics.jpg
 alt: image-alt
 description: ""
 ---
