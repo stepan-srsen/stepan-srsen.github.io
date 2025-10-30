@@ -15,9 +15,10 @@
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal-{{ project.modal-id }}">
                     <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i class="bi bi-plus-lg display-4"></i></div>
+                        <!--  <div class="portfolio-item-caption-content text-center text-white"><i class="bi bi-plus-lg display-4"></i></div> -->
+                        <div class="portfolio-item-caption-content text-center text-white">{{ project.title }}</div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/{{ project.img }}" alt="{{ project.alt }}" />
+                    <img class="img-fluid" src="img/projects/{{ project.img }}" alt="{{ project.alt }}" />
                 </div>
             </div>
             {% endfor %}

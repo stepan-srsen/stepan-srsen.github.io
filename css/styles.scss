@@ -300,6 +300,7 @@ html {
         overflow: hidden;
 
         .portfolio-item-caption {
+            padding: 1.5rem;
             position: absolute;
             top: 0;
             left: 0;
@@ -327,11 +328,11 @@ html {
     }
 
     .portfolio-modal-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
         line-height: 2rem;
 
         @include media-breakpoint-up(lg) {
-            font-size: 3rem;
+            font-size: 2.5rem;
             line-height: 2.5rem;
         }
     }
