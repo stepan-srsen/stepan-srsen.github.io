@@ -75,3 +75,66 @@ collections:
   projects:
     output: false
     sort_by: modal-id
+
+cv:
+  - when: since 10/2025
+    title: Assistant Professor
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'Department: <i>Department of Mathematics, Informatics and Cybernetics</i>'
+  - when: 10/2024-09/2025
+    title: Postdoctoral Research Fellow
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'research group: <i>independent postdoc position</i>'
+      - 'fellowship: <i>Czech Science Foundation fellow</i>'
+  - when: 10/2022-09/2024
+    title: Postdoctoral Research Fellow
+    where: University of Vienna, Austria
+    descr:
+      - 'research group: <i>Prof. Leticia González</i>'
+      - 'fellowship: <i>Czech Science Foundation fellow</i>'
+  - when: 01/2022-09/2022
+    title: Postdoctoral Researcher
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'research group: <i>Prof. Petr Slavíček</i>'
+  - when: 09/2017-12/2021
+    title: Ph.D. in Physical Chemistry
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'thesis title: <i>Data Science Approach to Electronic Spectroscopy</i>'
+      - 'supervisor: <i>Prof. Petr Slavíček</i>'
+      - part of International Max Planck Research School
+  - when: 11/2020-1/2021
+    title: Research Stay
+    where: University of Vienna, Austria
+    descr:
+      - 'research group: <i>Prof. Anatole von Lilienfeld</i>'
+  - when: 2017-2019
+    title: M.Sc. in Artificial Intelligence
+    where: Czech Technical University in Prague, Czech Republic
+    descr:
+      - 'thesis title: <i>Development of molecular representations suitable for machine learning application in quantum chemistry and spectroscopy</i>'
+      - 'supervisor: <i>Prof. Filip Železný</i>'
+  - when: 2015-2017
+    title: M.Sc. in Molecular Analytical and Physical Chemistry
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'thesis title: <i>Criegee intermediates: Advanced simulations of electronic spectra and photodynamics</i>'
+      - 'supervisor: <i>Prof. Petr Slavíček</i>'
+      - graduated with honours
+  - when: 2013-2017
+    title: B.Sc. in Information Technology
+    where: Czech Technical University in Prague, Czech Republic
+    descr:
+      - 'thesis title: <i>A distributed infrastructure for virtual molecule screening</i>'
+      - 'supervisor: <i>Dr. Jan Starý</i>'
+      - "Dean's Award for an extraordinary bachelor's thesis"
+  - when: 2012-2015
+    title: B.Sc. in Chemistry
+    where: University of Chemistry and Technology, Prague, Czech Republic
+    descr:
+      - 'thesis title: <i>Spectroscopy of reactive atmospheric particles: Theoretical study of Criegee intermediate</i>'
+      - 'supervisor: <i>Prof. Petr Slavíček</i>'
+      - graduated with honours

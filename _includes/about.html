@@ -10,16 +10,25 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- About Section Content-->
-        <div class="row">
-            <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
-        </div>
-        <!-- About Section Button-->
-        <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                <i class="bi bi-download me-2"></i>
-                Free Download!
-            </a>
-        </div>
-    </div>
+        {% for position in site.cv %}
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-1 col-xl-2 d-none d-lg-block"></div>
+                <div class="col-12 col-md-auto text-center">
+                    <button class="btn btn-secondary period mt-2 mb-3" disabled>{{ position.when }}</button>
+                </div>
+                <div class="col fs-5">
+                    <p class="my-0"><strong>{{ position.title }}</strong></p>
+                    <p class="my-0">{{ position.where }}</p>
+                    {% if position.descr %}
+                        <ul class="my-0">
+                        {% for point in position.descr %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div class="col-lg-1 col-xl-2 d-none d-lg-block"></div>
+            </div>
+        {% endfor %}
+
 </section>
